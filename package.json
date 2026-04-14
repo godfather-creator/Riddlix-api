@@ -1,0 +1,24 @@
+{
+  "name": "smart-brain-api",
+  "version": "1.0.0",
+  "description": "backend for smart brain app",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "knex": "^3.2.9",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
