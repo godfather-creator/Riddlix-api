@@ -12,6 +12,4 @@ const handleImage=(req,res,db)=>{
 }
 
 
-module.exports={
-    handleImage:handleImage
-};
+export default handleImage;
