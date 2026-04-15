@@ -15,7 +15,7 @@ const handleRegister=(db,bcrypt)=>(req,res)=>{
                 return trx('users')
                     .returning('*') 
                     .insert({
-                        email:loginEmail[0],
+                        email:loginEmail[0].email,
                         name:name,
                         joined:new Date()
                     })
@@ -26,7 +26,10 @@ const handleRegister=(db,bcrypt)=>(req,res)=>{
             .then(trx.commit)
             .catch(trx.rollback)
         })
-        .catch(err=>res.status(400).json('unable to register'));
+        .catch(err=>{
+            console.log(err);
+            res.status(400).json('unable to register')
+        });
 }
 
 
