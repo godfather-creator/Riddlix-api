@@ -11,7 +11,7 @@
     "start:dev": "nodemon script.js"
   },
   "dependencies": {
-    "bcrypt-nodejs": "^0.0.3",
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "knex": "^3.2.9",
