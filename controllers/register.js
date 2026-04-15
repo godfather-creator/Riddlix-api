@@ -28,8 +28,8 @@ const handleRegister=(db,bcrypt)=>(req,res)=>{
         })
         .catch(err=>{
             console.log(err);
-            res.status(400).json('unable to register')
-        });
+            res.status(400).json('unable to register');
+        })
 }
 
 
