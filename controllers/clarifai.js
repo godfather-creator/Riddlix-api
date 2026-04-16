@@ -33,4 +33,7 @@ const handleClarifai=(req, res) => {
     .catch(err => res.status(400).json('error calling clarifai'));
 }
 
-export default handleClarifai;
+
+module.exports={
+    handleClarifai:handleClarifai
+};

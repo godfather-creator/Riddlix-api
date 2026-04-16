@@ -4,7 +4,7 @@
   "description": "backend for smart brain app",
   "license": "ISC",
   "author": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "script.js",
   "scripts": {
     "start": "node script.js",

@@ -1,14 +1,13 @@
-import express from 'express';
-import bcrypt from 'bcryptjs'; 
-import cors from 'cors';
-import knex from 'knex';
+const express =require('express');
+const bcrypt =require('bcrypt-nodejs');  
+const cors=require('cors');
+const knex = require('knex');
 
-
-import handleRegister from "./controllers/register.js";
-import handleSignin from "./controllers/signin.js";
-import handleProfileGet from "./controllers/profile.js";
-import handleImage from "./controllers/image.js";
-import handleClarifai from "./controllers/clarifai.js";
+const register =require('./controllers/register');
+const signin =require('./controllers/signin');
+const profile=require('./controllers/profile');
+const image=require('./controllers/image');
+const clarifai = require('./controllers/clarifai');
 
 const db = knex({
   client: 'pg',
@@ -23,14 +22,12 @@ const app=express();
 app.use(express.json());
 app.use(cors());
 
-
-app.get('/', (req, res) => { res.send('success'); });
-
-app.post('/signin',     (req, res) => { handleSignin(req, res, db, bcrypt) });
-app.post('/register', handleRegister(db, bcrypt)); 
-app.get('/profile/:id', (req, res) => { handleProfileGet(req, res, db) });
-app.post('/image',      (req, res) => { handleImage(req, res, db) });
-app.post('/clarifai',   (req, res) => { handleClarifai(req, res) });
+app.get('/',(req,res)=>{ res.send('success'); })
+app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)});
+app.post('/register',register.handleRegister(db,bcrypt));
+app.get('/profile/:id',(req,res)=>{profile.handleProfile(req,res,db)});
+app.post('/image',(req,res)=>image.handleImage(req,res,db));
+app.post('/clarifai',(req,res)=>clarifai.handleClarifai(req,res));
 
 
 

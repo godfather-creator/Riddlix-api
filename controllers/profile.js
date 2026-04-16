@@ -12,4 +12,7 @@ const handleProfileGet=(req,res,db)=>{
 
 }
 
-export default handleProfileGet;
+
+module.exports={
+    handleProfileGet:handleProfileGet
+};
