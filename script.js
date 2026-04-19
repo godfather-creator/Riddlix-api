@@ -13,21 +13,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// ✅ INIT DB
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    port: 5432,
-    user: 'postgres',
-    password: 'Vipransh@4',
-    database: 'riddlix',
-  },
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+  }
 });
 
-
-
-// ✅ ROUTES
 app.get('/', (req, res) => {
   res.send('success');
 });
@@ -75,6 +68,6 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
-  console.log(`app is running on port 4000`);
+app.listen(process.env.PORT || 4000,()=>{ 
+    console.log(`app is running on port ${process.env.PORT}`);
 });
